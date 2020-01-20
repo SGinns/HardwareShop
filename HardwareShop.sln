@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardwareBackOffice", "HardwareBackOffice\HardwareBackOffice.csproj", "{A75D05EA-A914-49CD-A0F0-8C0E6E0B9054}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HardwareFrontEnd", "HardwareFrontEnd\", "{FDEC03C8-0914-437A-B56B-48A6E1C03C5B}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_50494"
+		Debug.AspNetCompiler.PhysicalPath = "HardwareFrontEnd\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50494\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_50494"
+		Release.AspNetCompiler.PhysicalPath = "HardwareFrontEnd\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50494\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "50494"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardwareClasses", "HardwareClasses\HardwareClasses.csproj", "{143B4F37-4228-46C2-9BEA-EA8A0EF3EE18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HardwareTesting", "HardwareTesting\HardwareTesting.csproj", "{C2326181-47EA-4950-87EC-6F95C0E9141F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A75D05EA-A914-49CD-A0F0-8C0E6E0B9054}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A75D05EA-A914-49CD-A0F0-8C0E6E0B9054}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A75D05EA-A914-49CD-A0F0-8C0E6E0B9054}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A75D05EA-A914-49CD-A0F0-8C0E6E0B9054}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDEC03C8-0914-437A-B56B-48A6E1C03C5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDEC03C8-0914-437A-B56B-48A6E1C03C5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDEC03C8-0914-437A-B56B-48A6E1C03C5B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDEC03C8-0914-437A-B56B-48A6E1C03C5B}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{143B4F37-4228-46C2-9BEA-EA8A0EF3EE18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{143B4F37-4228-46C2-9BEA-EA8A0EF3EE18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{143B4F37-4228-46C2-9BEA-EA8A0EF3EE18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{143B4F37-4228-46C2-9BEA-EA8A0EF3EE18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2326181-47EA-4950-87EC-6F95C0E9141F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2326181-47EA-4950-87EC-6F95C0E9141F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2326181-47EA-4950-87EC-6F95C0E9141F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2326181-47EA-4950-87EC-6F95C0E9141F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CCDD5529-C0CF-4509-B955-43C162FB8965}
+	EndGlobalSection
+EndGlobal
