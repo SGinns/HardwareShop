@@ -10,7 +10,7 @@ using System.Data;
 ///it is free for use by anybody so long as you give credit to the original author i.e me
 ///Matthew Dean mjdean@dmu.ac.uk De Montfort University 2013
 
-namespace ClassLibrary
+namespace HardwareClasses
 {
     public class clsDataConnection
     {
@@ -69,6 +69,7 @@ namespace ClassLibrary
             {
                 //get the list of files in the folder
                 filePaths = System.IO.Directory.GetDirectories(BaseDir);
+                
                 PathArrayIndex = 0;
                 while (PathArrayIndex < filePaths.Length & Found == false)
                 {
