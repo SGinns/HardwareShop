@@ -49,11 +49,21 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="tstStaff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HardwareBackOffice\HardwareBackOffice.csproj">
+      <Project>{a75d05ea-a914-49cd-a0f0-8c0e6e0b9054}</Project>
+      <Name>HardwareBackOffice</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HardwareClasses\HardwareClasses.csproj">
+      <Project>{143b4f37-4228-46c2-9bea-ea8a0ef3ee18}</Project>
+      <Name>HardwareClasses</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
