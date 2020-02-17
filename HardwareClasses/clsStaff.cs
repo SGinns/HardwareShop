@@ -92,20 +92,27 @@ namespace HardwareClasses
 
             DB.Execute("sproc_tblStaff_FilterByEmployeeNo");
 
-            if (DB.Count == 1)
+            try
             {
-                mEmployeeNo = Convert.ToInt32(DB.DataTable.Rows[0]["Employee_id"]);
-                mSalary = Convert.ToInt32(DB.DataTable.Rows[0]["salary"]);
-                mfirst_name = Convert.ToString(DB.DataTable.Rows[0]["first_name"]);
-                mlast_name = Convert.ToString(DB.DataTable.Rows[0]["last_name"]);
-                mactive = Convert.ToBoolean(DB.DataTable.Rows[0]["active"]);
-                mcreated_at = Convert.ToDateTime(DB.DataTable.Rows[0]["created_at"]);
-                return true;
+
+                if (DB.Count == 1)
+                {
+                    mEmployeeNo = Convert.ToInt32(DB.DataTable.Rows[0]["Employee_id"]);
+                    mSalary = Convert.ToInt32(DB.DataTable.Rows[0]["salary"]);
+                    mfirst_name = Convert.ToString(DB.DataTable.Rows[0]["first_name"]);
+                    mlast_name = Convert.ToString(DB.DataTable.Rows[0]["last_name"]);
+                    mactive = Convert.ToBoolean(DB.DataTable.Rows[0]["active"]);
+                    mcreated_at = Convert.ToDateTime(DB.DataTable.Rows[0]["created_at"]);
+                    return true;
+                }
             }
-            else
+
+            catch (IndexOutOfRangeException e)
             {
+                Console.WriteLine("Exception Caught: ", e);
                 return false;
             }
+            return false;
         }
     }
 }
