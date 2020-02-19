@@ -8,6 +8,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HardwareFrontEnd", "HardwareFrontEnd\", "{FDEC03C8-0914-437A-B56B-48A6E1C03C5B}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{143b4f37-4228-46c2-9bea-ea8a0ef3ee18}|HardwareClasses.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_50494"
 		Debug.AspNetCompiler.PhysicalPath = "HardwareFrontEnd\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50494\"
