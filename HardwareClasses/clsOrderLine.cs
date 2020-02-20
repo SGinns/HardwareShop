@@ -20,12 +20,25 @@ namespace HardwareClasses
 
         public bool find(int id)
         {
-            mOrderLineId = 1;
-            mOrderId = 1;
-            mProductId = 1;
-            mQuantity = 3;
+            clsDataConnection db = new clsDataConnection();
 
-            return true;
+            db.AddParameter("@OrderLineId", id);
+
+            db.Execute("sproc_tblOrder_FilterByOrderLineId");
+
+            if (db.Count == 1)
+            {
+                mOrderLineId = Convert.ToInt32(db.DataTable.Rows[0]["OrderLineId"]);
+                mOrderId = Convert.ToInt32(db.DataTable.Rows[0]["OrderId"]);
+                mProductId = Convert.ToInt32(db.DataTable.Rows[0]["ProductId"]);
+                mQuantity = Convert.ToInt32(db.DataTable.Rows[0]["Quantity"]);
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

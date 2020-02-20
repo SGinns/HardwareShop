@@ -31,4 +31,49 @@ public partial class AnOrder : System.Web.UI.Page
 
         Response.Redirect("OrderViewer.aspx");
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsOrder AnOrder = new clsOrder();
+
+        Int32 orderId;
+
+        Boolean found = false;
+
+        orderId = Convert.ToInt32(txtBxOrderId.Text);
+
+        found = AnOrder.find(2);
+
+        if (found)
+        {
+            txtBxOrderId.Text = Convert.ToString(AnOrder.OrderId);
+            txtBxCustomerId.Text = Convert.ToString(AnOrder.CustomerId);
+            txtBxStaffId.Text = Convert.ToString(AnOrder.StaffId);
+            txtBxDetails.Text = AnOrder.Details;
+            txtBxDate.Text = Convert.ToString(AnOrder.Date);
+        }
+    }
+
+    protected void btnFind_Click1(object sender, EventArgs e)
+    {
+
+        clsOrder AnOrder = new clsOrder();
+
+        Int32 orderId;
+
+        Boolean found = false;
+
+        orderId = Convert.ToInt32(txtBxOrderId.Text);
+
+        found = AnOrder.find(2);
+
+        if (found)
+        {
+            txtBxOrderId.Text = Convert.ToString(AnOrder.OrderId);
+            txtBxCustomerId.Text = Convert.ToString(AnOrder.CustomerId);
+            txtBxStaffId.Text = Convert.ToString(AnOrder.StaffId);
+            txtBxDetails.Text = AnOrder.Details;
+            txtBxDate.Text = Convert.ToString(AnOrder.Date);
+        }
+    }
 }

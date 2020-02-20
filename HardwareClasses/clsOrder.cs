@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLibrary;
 
 namespace HardwareClasses
 {
@@ -24,7 +23,7 @@ namespace HardwareClasses
         {
             clsDataConnection db = new clsDataConnection();
 
-            db.AddParameter("@OrderId", OrderId);
+            db.AddParameter("@OrderId", id);
 
             db.Execute("sproc_tblOrder_FilterByOrderId");
 

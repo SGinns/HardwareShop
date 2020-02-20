@@ -23,11 +23,11 @@ namespace HardwareTesting
 
             Boolean ok = true;
 
-            Int32 OrderLineId = 1;
+            Int32 OrderLineId = 2;
 
             found = AnOrderLine.find(OrderLineId);
 
-            if (AnOrderLine.OrderLineId != 1)
+            if (AnOrderLine.OrderLineId != OrderLineId)
             {
                 ok = false;
             }
@@ -44,11 +44,11 @@ namespace HardwareTesting
 
             Boolean ok = true;
 
-            Int32 OrderLineId = 1;
+            Int32 OrderLineId = 2;
 
-            found = AnOrderLine.find(OrderLineId);
+            found = AnOrderLine.find(2);
 
-            if (AnOrderLine.OrderLineId != 1)
+            if (AnOrderLine.OrderLineId != OrderLineId)
             {
                 ok = false;
             }
@@ -65,11 +65,11 @@ namespace HardwareTesting
 
             Boolean ok = true;
 
-            Int32 OrderLineId = 1;
+            Int32 OrderId = 2;
 
-            found = AnOrderLine.find(OrderLineId);
+            found = AnOrderLine.find(2);
 
-            if (AnOrderLine.OrderId != 1)
+            if (AnOrderLine.OrderId != OrderId)
             {
                 ok = false;
             }
@@ -86,11 +86,11 @@ namespace HardwareTesting
 
             Boolean ok = true;
 
-            Int32 OrderLineId = 1;
+            Int32 ProductId = 1;
 
-            found = AnOrderLine.find(OrderLineId);
+            found = AnOrderLine.find(2);
 
-            if (AnOrderLine.ProductId != 1)
+            if (AnOrderLine.ProductId != ProductId)
             {
                 ok = false;
             }
@@ -106,11 +106,11 @@ namespace HardwareTesting
 
             Boolean ok = true;
 
-            Int32 OrderLineId = 1;
+            Int32 quantity = 10;
 
-            found = AnOrderLine.find(OrderLineId);
+            found = AnOrderLine.find(2);
 
-            if (AnOrderLine.Quantity != 3)
+            if (AnOrderLine.Quantity != quantity)
             {
                 ok = false;
             }
@@ -123,11 +123,20 @@ namespace HardwareTesting
         {
             clsOrderLine AnOrderLine = new clsOrderLine();
 
-            int TestData = 1;
+            Boolean found = false;
 
-            AnOrderLine.OrderId = 1;
+            Boolean ok = true;
 
-            Assert.AreEqual(AnOrderLine.OrderId, TestData);
+            Int32 OrderId = 2;
+
+            found = AnOrderLine.find(2);
+
+            if (AnOrderLine.OrderId != OrderId)
+            {
+                ok = false;
+            }
+
+            Assert.IsTrue(found);
         }
 
         [TestMethod]
