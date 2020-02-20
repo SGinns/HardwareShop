@@ -16,20 +16,15 @@ namespace HardwareTesting
 
         [TestMethod]
         public void Test_findMethodExists() {
-            clsOrder AnOrder = new clsOrder();
 
+            // Create New Instance of class
+            clsOrder order = new clsOrder();
+            // Var to store result of method
             Boolean found = false;
-
-            Boolean ok = true;
-
-            Int32 OrderId = 2;
-
-            found = AnOrder.find(OrderId);
-
-            if (AnOrder.OrderId != 2)
-            {
-                ok = false;
-            }
+            // Employee no to search for 
+            int orderId = 2;
+            // Use the find method
+            found = order.find(orderId);
 
             Assert.IsTrue(found);
         }
@@ -45,14 +40,14 @@ namespace HardwareTesting
 
             Int32 OrderId = 2;
 
-            found = AnOrder.find(OrderId);
+            found = AnOrder.find(2);
 
-            if (AnOrder.OrderId != 2)
+            if (AnOrder.OrderId != OrderId)
             {
                 ok = false;
             }
 
-            Assert.IsTrue(found);
+            Assert.IsTrue(ok);
         }
 
         [TestMethod]
@@ -64,16 +59,16 @@ namespace HardwareTesting
 
             Boolean ok = true;
 
-            Int32 OrderId = 2;
+            Int32 customerId = 12321;
 
-            found = AnOrder.find(OrderId);
+            found = AnOrder.find(2);
 
-            if (AnOrder.CustomerId != 1)
+            if (AnOrder.CustomerId != customerId)
             {
                 ok = false;
             }
 
-            Assert.IsTrue(found);
+            Assert.IsTrue(ok);
         }
 
         [TestMethod]
@@ -85,16 +80,16 @@ namespace HardwareTesting
 
             Boolean ok = true;
 
-            Int32 OrderId = 2;
+            Int32 StaffId = 1;
 
-            found = AnOrder.find(OrderId);
+            found = AnOrder.find(2);
 
-            if (AnOrder.StaffId != 1)
+            if (AnOrder.StaffId != StaffId)
             {
                 ok = false;
             }
 
-            Assert.IsTrue(found);
+            Assert.IsTrue(ok);
         }
 
         [TestMethod]
@@ -106,16 +101,16 @@ namespace HardwareTesting
 
             Boolean ok = true;
 
-            Int32 OrderId = 2;
+            DateTime date = Convert.ToDateTime("11/02/2020");
 
-            found = AnOrder.find(OrderId);
+            found = AnOrder.find(2);
 
-            if (AnOrder.Date != Convert.ToDateTime("11/02/2020 17:00:53"))
+            if (AnOrder.Date != date)
             {
                 ok = false;
             }
 
-            Assert.IsTrue(found);
+            Assert.IsTrue(ok);
         }
 
         [TestMethod]
@@ -127,16 +122,16 @@ namespace HardwareTesting
 
             Boolean ok = true;
 
-            Int32 OrderId = 2;
+            string details = "text";
 
-            found = AnOrder.find(OrderId);
+            found = AnOrder.find(2);
 
-            if (AnOrder.Details != "text")
+            if (AnOrder.Details != details)
             {
                 ok = false;
             }
 
-            Assert.IsTrue(found);
+            Assert.IsTrue(ok);
         }
 
         [TestMethod]
