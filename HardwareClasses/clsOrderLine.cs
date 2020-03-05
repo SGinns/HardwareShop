@@ -40,5 +40,95 @@ namespace HardwareClasses
                 return false;
             }
         }
+
+        public string Validate(string orderLineId, string orderId, string productId, string quantity)
+        {
+            string error = "";
+
+            if (orderLineId.Length == 0)
+            {
+                error += "The orderline id must not be blank : ";
+            }
+
+            if (orderLineId.Length > 6)
+            {
+                error += "The orderline id must be less than 6 characters : ";
+            }
+
+            try
+            {
+                Convert.ToInt32(orderLineId);
+            }
+            catch
+            {
+                error += "The orderline id is not a valid number : ";
+            }
+
+            if (orderId.Length == 0)
+            {
+                error += "The order id must not be blank : ";
+            }
+
+            if (orderId.Length > 6)
+            {
+                error += "The order id must be less than 6 characters : ";
+            }
+
+            try
+            {
+                Convert.ToInt32(orderId);
+            }
+            catch
+            {
+                error += "The order id is not a valid number : ";
+            }
+
+            if (productId.Length == 0)
+            {
+                error += "The product id must not be blank : ";
+            }
+
+            if (productId.Length > 6)
+            {
+                error += "The product id must be less than 6 characters : ";
+            }
+
+            try
+            {
+                Convert.ToInt32(productId);
+            }
+            catch
+            {
+                error += "The product id is not a valid number : ";
+            }
+
+            if (quantity.Length == 0)
+            {
+                error += "The quantity must not be blank : ";
+            }
+
+            try
+            {
+                if (Convert.ToInt32(quantity) == 0)
+                {
+                    error += "The quantity must be at least 1 : ";
+                }
+            }
+            catch
+            {
+                error += "The quantity value is not valid : ";
+            }
+
+            try
+            {
+                Convert.ToInt32(quantity);
+            }
+            catch
+            {
+                error += "Quantity is not a valid number : ";
+            }
+
+            return error;
+        }
     }
 }
