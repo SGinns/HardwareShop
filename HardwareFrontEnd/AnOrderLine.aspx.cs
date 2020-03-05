@@ -21,14 +21,28 @@ public partial class AnOrderLine : System.Web.UI.Page
     {
         clsOrderLine orderLine = new clsOrderLine();
 
-        orderLine.OrderLineId = Convert.ToInt32(txtBxOrderLineId.Text);
-        orderLine.OrderId = Convert.ToInt32(txtBxOrderId.Text);
-        orderLine.ProductId = Convert.ToInt32(txtBxProductId.Text);
-        orderLine.Quantity = Convert.ToInt32(txtBxQuantity.Text);
+        string orderLineId = txtBxOrderLineId.Text;
+        string orderId = txtBxOrderId.Text;
+        string productId = txtBxProductId.Text;
+        string quantity = txtBxQuantity.Text;
 
-        Session["orderLine"] = orderLine;
+        string error = orderLine.Validate(orderLineId, orderId, productId, quantity);
 
-        Response.Redirect("OrderLineViewer.aspx");
+        if (error == "")
+        {
+            orderLine.OrderLineId = Convert.ToInt32(orderLineId);
+            orderLine.OrderId = Convert.ToInt32(orderId);
+            orderLine.ProductId = Convert.ToInt32(productId);
+            orderLine.Quantity = Convert.ToInt32(quantity);
+
+            Session["orderLine"] = orderLine;
+
+            Response.Redirect("OrderLineViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)

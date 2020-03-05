@@ -21,15 +21,32 @@ public partial class AnOrder : System.Web.UI.Page
     {
         clsOrder AnOrder = new clsOrder();
 
-        AnOrder.OrderId = Convert.ToInt32(txtBxOrderId.Text);
-        AnOrder.StaffId = Convert.ToInt32(txtBxStaffId.Text);
-        AnOrder.CustomerId = Convert.ToInt32(txtBxCustomerId.Text);
-        AnOrder.Date = Convert.ToDateTime(txtBxDate.Text);
-        AnOrder.Details = txtBxDetails.Text;
+        string orderId = txtBxOrderId.Text;
+        string staffId = txtBxStaffId.Text;
+        string customerId = txtBxCustomerId.Text;
+        string date = txtBxDate.Text;
+        string details = txtBxDetails.Text;
 
-        Session["AnOrder"] = AnOrder;
+        string error = "";
 
-        Response.Redirect("OrderViewer.aspx");
+        error = AnOrder.Validate(orderId, customerId, staffId, date, details);
+
+        if (error == "")
+        {
+            AnOrder.OrderId = Convert.ToInt32(orderId);
+            AnOrder.StaffId = Convert.ToInt32(staffId);
+            AnOrder.CustomerId = Convert.ToInt32(customerId);
+            AnOrder.Date = Convert.ToDateTime(date);
+            AnOrder.Details = details;
+
+            Session["AnOrder"] = AnOrder;
+
+            Response.Redirect("OrderViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = error;
+        };
     }
 
     protected void btnFind_Click(object sender, EventArgs e)

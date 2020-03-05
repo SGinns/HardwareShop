@@ -42,5 +42,97 @@ namespace HardwareClasses
                 return false;
             }
         }
+
+        public string Validate(string orderId, string customerId, string staffId, string date, string details)
+        {
+            string error = "";
+
+            if (orderId.Length == 0)
+            {
+                error += "The order id must not be blank : ";
+            }
+
+            if (orderId.Length > 6)
+            {
+                error += "The order id must be less than 6 characters : ";
+            }
+
+            try
+            {
+                Convert.ToInt32(orderId);
+            }
+            catch
+            {
+                error += "The order id is not a valid number : ";
+            }
+
+            if (customerId.Length == 0)
+            {
+                error += "The customer id must not be blank : ";
+            }
+
+            if (customerId.Length > 6)
+            {
+                error += "The customer id must be less than 6 characters : ";
+            }
+
+            try
+            {
+                Convert.ToInt32(customerId);
+            }
+            catch
+            {
+                error += "The customer id is not a valid number : ";
+            }
+
+            if (staffId.Length == 0)
+            {
+                error += "The staff id must not be blank : ";
+            }
+
+            if (staffId.Length > 6)
+            {
+                error += "The staff id must be less than 6 characters : ";
+            }
+
+            try
+            {
+                Convert.ToInt32(staffId);
+            }
+            catch
+            {
+                error += "The staff id is not a valid number : ";
+            }
+
+            if (details.Length == 0)
+            {
+                error += "The details must not be blank : ";
+            }
+
+            if (details.Length > 100)
+            {
+                error += "The details must be no more than 100 characters : ";
+            }
+
+            try
+            {
+                DateTime dateTemp = Convert.ToDateTime(date);
+
+                if (dateTemp < DateTime.Now.Date)
+                {
+                    error += "The date cannot be in the past : ";
+                }
+
+                if (dateTemp > DateTime.Now.Date)
+                {
+                    error += "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                error += "The date was not a valid date : ";
+            }
+            return error;
+        }
     }
 }
