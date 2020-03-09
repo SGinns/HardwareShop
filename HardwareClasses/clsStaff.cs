@@ -114,5 +114,37 @@ namespace HardwareClasses
             }
             return false;
         }
+        public string Valid(int salary, string firstName, string lastName, bool active)
+        {
+            string error = "";
+
+            if (salary <= 0)
+            {
+                // Check if salary isnt set
+                error += "Salary was equal or less than 0 (Not set)";
+            }
+
+            if (firstName.Length == 0 || firstName ==  " ")
+            {
+                // Check if first name is set
+                error += "Firstname was not set";
+            }
+
+
+            if (lastName.Length == 0 || lastName == " ")
+            {
+                // Check if last name is set
+                error += "Lastname was not set";
+            }
+
+            if (!active)
+            {
+                //lol
+                Console.WriteLine(@"I checked a boolean bc why not \r\n ------------- \r\n Joe");
+            }
+
+            return error;
+        }
+
     }
 }
