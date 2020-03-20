@@ -201,7 +201,7 @@ namespace HardwareTesting
 
             error = orderline.Validate(orderLineId, "1", "1", "1");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -215,7 +215,7 @@ namespace HardwareTesting
 
             error = orderline.Validate(orderLineId, "1", "1", "1");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -229,7 +229,7 @@ namespace HardwareTesting
 
             error = orderline.Validate(orderLineId, "1", "1", "1");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -243,7 +243,7 @@ namespace HardwareTesting
 
             error = orderline.Validate(orderLineId, "1", "1", "1");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -257,7 +257,7 @@ namespace HardwareTesting
 
             error = orderline.Validate(orderLineId, "1", "1", "1");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -313,7 +313,7 @@ namespace HardwareTesting
 
             error = orderline.Validate("1", orderId, "1", "1");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -327,7 +327,7 @@ namespace HardwareTesting
 
             error = orderline.Validate("1", orderId, "1", "1");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -341,7 +341,7 @@ namespace HardwareTesting
 
             error = orderline.Validate("1", orderId, "1", "1");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -355,7 +355,7 @@ namespace HardwareTesting
 
             error = orderline.Validate("1", orderId, "1", "1");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -369,7 +369,7 @@ namespace HardwareTesting
 
             error = orderline.Validate("1", orderId, "1", "1");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -425,7 +425,7 @@ namespace HardwareTesting
 
             error = orderline.Validate("1", "1", productId, "1");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -439,7 +439,7 @@ namespace HardwareTesting
 
             error = orderline.Validate("1", "1", productId, "1");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -453,7 +453,7 @@ namespace HardwareTesting
 
             error = orderline.Validate("1", "1", productId, "1");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -467,7 +467,7 @@ namespace HardwareTesting
 
             error = orderline.Validate("1", "1", productId, "1");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -481,7 +481,7 @@ namespace HardwareTesting
 
             error = orderline.Validate("1", "1", productId, "1");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]

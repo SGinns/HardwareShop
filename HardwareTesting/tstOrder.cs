@@ -241,7 +241,7 @@ namespace HardwareTesting
 
             error = order.Validate(orderId, "1", "1", DateTime.Now.Date.ToString(), "test");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -255,7 +255,7 @@ namespace HardwareTesting
 
             error = order.Validate(orderId, "1", "1", DateTime.Now.Date.ToString(), "test");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -269,7 +269,7 @@ namespace HardwareTesting
 
             error = order.Validate(orderId, "1", "1", DateTime.Now.Date.ToString(), "test");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -283,7 +283,7 @@ namespace HardwareTesting
 
             error = order.Validate(orderId, "1", "1", DateTime.Now.Date.ToString(), "test");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -297,7 +297,7 @@ namespace HardwareTesting
 
             error = order.Validate(orderId, "1", "1", DateTime.Now.Date.ToString(), "test");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -354,7 +354,7 @@ namespace HardwareTesting
 
             error = order.Validate("1", "1", staffId, DateTime.Now.Date.ToString(), "test");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -368,7 +368,7 @@ namespace HardwareTesting
 
             error = order.Validate("1", "1", staffId, DateTime.Now.Date.ToString(), "test");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -382,7 +382,7 @@ namespace HardwareTesting
 
             error = order.Validate("1", "1", staffId, DateTime.Now.Date.ToString(), "test");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -396,7 +396,7 @@ namespace HardwareTesting
 
             error = order.Validate("1", "1", staffId, DateTime.Now.Date.ToString(), "test");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -410,7 +410,7 @@ namespace HardwareTesting
 
             error = order.Validate("1", "1", staffId, DateTime.Now.Date.ToString(), "test");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -467,7 +467,7 @@ namespace HardwareTesting
 
             error = order.Validate("1", customerId, "1", DateTime.Now.Date.ToString(), "test");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -481,7 +481,7 @@ namespace HardwareTesting
 
             error = order.Validate("1", customerId, "1", DateTime.Now.Date.ToString(), "test");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -495,7 +495,7 @@ namespace HardwareTesting
 
             error = order.Validate("1", customerId, "1", DateTime.Now.Date.ToString(), "test");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]
@@ -509,7 +509,7 @@ namespace HardwareTesting
 
             error = order.Validate("1", customerId, "1", DateTime.Now.Date.ToString(), "test");
 
-            Assert.AreEqual("", error);
+            Assert.AreNotEqual("", error);
         }
 
         [TestMethod]
@@ -523,7 +523,7 @@ namespace HardwareTesting
 
             error = order.Validate("1", customerId, "1", DateTime.Now.Date.ToString(), "test");
 
-            Assert.AreEqual(error, "");
+            Assert.AreNotEqual(error, "");
         }
 
         [TestMethod]

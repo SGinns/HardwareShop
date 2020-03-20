@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsDataConnection.cs" />
+    <Compile Include="clsOrderLineCollection.cs" />
+    <Compile Include="clsOrderCollection.cs" />
     <Compile Include="clsOrderLine.cs" />
     <Compile Include="clsOrder.cs" />
     <Compile Include="clsStaff.cs" />
