@@ -23,7 +23,7 @@ namespace HardwareTesting
 
             Boolean ok = true;
 
-            Int32 OrderLineId = 2;
+            Int32 OrderLineId = 19;
 
             found = AnOrderLine.find(OrderLineId);
 
@@ -46,7 +46,7 @@ namespace HardwareTesting
 
             Int32 OrderLineId = 2;
 
-            found = AnOrderLine.find(2);
+            found = AnOrderLine.find(19);
 
             if (AnOrderLine.OrderLineId != OrderLineId)
             {
@@ -67,7 +67,7 @@ namespace HardwareTesting
 
             Int32 OrderId = 2;
 
-            found = AnOrderLine.find(2);
+            found = AnOrderLine.find(19);
 
             if (AnOrderLine.OrderId != OrderId)
             {
@@ -88,7 +88,7 @@ namespace HardwareTesting
 
             Int32 ProductId = 1;
 
-            found = AnOrderLine.find(2);
+            found = AnOrderLine.find(19);
 
             if (AnOrderLine.ProductId != ProductId)
             {
@@ -108,7 +108,7 @@ namespace HardwareTesting
 
             Int32 quantity = 10;
 
-            found = AnOrderLine.find(2);
+            found = AnOrderLine.find(19);
 
             if (AnOrderLine.Quantity != quantity)
             {
@@ -129,7 +129,7 @@ namespace HardwareTesting
 
             Int32 OrderId = 2;
 
-            found = AnOrderLine.find(2);
+            found = AnOrderLine.find(19);
 
             if (AnOrderLine.OrderId != OrderId)
             {

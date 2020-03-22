@@ -28,11 +28,28 @@ namespace HardwareClasses
 
             if (db.Count == 1)
             {
-                mOrderLineId = Convert.ToInt32(db.DataTable.Rows[0]["OrderLineId"]);
-                mOrderId = Convert.ToInt32(db.DataTable.Rows[0]["OrderId"]);
-                mProductId = Convert.ToInt32(db.DataTable.Rows[0]["ProductId"]);
-                mQuantity = Convert.ToInt32(db.DataTable.Rows[0]["Quantity"]);
+                OrderLineId = Convert.ToInt32(db.DataTable.Rows[0]["OrderLineId"]);
+                OrderId = Convert.ToInt32(db.DataTable.Rows[0]["OrderId"]);
+                ProductId = Convert.ToInt32(db.DataTable.Rows[0]["ProductId"]);
+                Quantity = Convert.ToInt32(db.DataTable.Rows[0]["Quantity"]);
 
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool exists(int id)
+        {
+            clsDataConnection db = new clsDataConnection();
+
+            db.AddParameter("@OrderLineId", id);
+
+            db.Execute("sproc_tblOrder_FilterByOrderLineId");
+
+            if (db.Count == 1)
+            {
                 return true;
             }
             else

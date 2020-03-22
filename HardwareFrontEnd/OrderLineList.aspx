@@ -11,6 +11,13 @@
         <div>
             <asp:ListBox ID="lstOrderLinesList" runat="server" Height="492px" Width="592px"></asp:ListBox>
         </div>
+        <p>
+            <asp:Button ID="AddBtn" runat="server" OnClick="AddBtn_Click" Text="Add" />
+            <asp:Button ID="DeleteBtn" runat="server" OnClick="DeleteBtn_Click" Text="Delete" />
+            <asp:Button ID="EditBtn" runat="server" OnClick="EditBtn_Click" Text="Edit" />
+            <br />
+            <asp:Label ID="ErrorLbl" runat="server" />
+        </p>
     </form>
 </body>
 </html>

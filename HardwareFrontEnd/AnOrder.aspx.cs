@@ -8,13 +8,38 @@ using HardwareClasses;
 
 public partial class AnOrder : System.Web.UI.Page
 {
+    Int32 OrderId;
     protected void Page_Load(object sender, EventArgs e)
     {
+
         clsOrder AnOrder = new clsOrder();
 
-        AnOrder = (clsOrder)Session["AnAddress"];
+        AnOrder = (clsOrder)Session["AnOrder"];
+
+        OrderId = Convert.ToInt32(Session["OrderId"]);
+
+        if (IsPostBack == false) 
+        {
+            if (OrderId != -1) 
+            {
+                DisplayOrders();
+            }
+        }
 
         //Response.Write(AnOrder.OrderId);
+    }
+
+    void DisplayOrders() 
+    {
+        clsOrderCollection orders = new clsOrderCollection();
+
+        orders.ThisOrder.find(OrderId);
+
+        txtBxOrderId.Text = orders.ThisOrder.OrderId.ToString();
+        txtBxCustomerId.Text = orders.ThisOrder.CustomerId.ToString();
+        txtBxStaffId.Text = orders.ThisOrder.StaffId.ToString();
+        txtBxDetails.Text = orders.ThisOrder.Details;
+        txtBxDate.Text = orders.ThisOrder.Date.ToString();
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -27,9 +52,9 @@ public partial class AnOrder : System.Web.UI.Page
         string date = txtBxDate.Text;
         string details = txtBxDetails.Text;
 
-        string error = "";
+        string error = AnOrder.Validate(orderId, customerId, staffId, date, details);
 
-        error = AnOrder.Validate(orderId, customerId, staffId, date, details);
+        clsOrderCollection orders = new clsOrderCollection();
 
         if (error == "")
         {
@@ -41,12 +66,24 @@ public partial class AnOrder : System.Web.UI.Page
 
             Session["AnOrder"] = AnOrder;
 
-            Response.Redirect("OrderViewer.aspx");
+            clsOrderCollection orderList = new clsOrderCollection();
+            if (!AnOrder.exists(AnOrder.OrderId))
+            {
+                orderList.ThisOrder = AnOrder;
+                orderList.Add();
+            }
+            else 
+            {
+                orderList.ThisOrder = AnOrder;
+                orderList.Update();
+            }
         }
         else
         {
             lblError.Text = error;
-        };
+        }
+
+        Response.Redirect("OrderViewer.aspx");
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
@@ -57,7 +94,14 @@ public partial class AnOrder : System.Web.UI.Page
 
         Boolean found = false;
 
-        orderId = Convert.ToInt32(txtBxOrderId.Text);
+        try
+        {
+            orderId = Convert.ToInt32(txtBxOrderId.Text);
+        }
+        catch 
+        {
+            throw new Exception("Order Id was not specified");
+        }
 
         found = AnOrder.find(2);
 
