@@ -42,6 +42,23 @@ namespace HardwareClasses
                 return false;
             }
         }
+        public bool exists(int id)
+        {
+            clsDataConnection db = new clsDataConnection();
+
+            db.AddParameter("@OrderId", id);
+
+            db.Execute("sproc_tblOrder_FilterByOrderId");
+
+            if (db.Count == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         public string Validate(string orderId, string customerId, string staffId, string date, string details)
         {

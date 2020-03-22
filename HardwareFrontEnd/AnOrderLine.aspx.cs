@@ -8,13 +8,37 @@ using HardwareClasses;
 
 public partial class AnOrderLine : System.Web.UI.Page
 {
+    Int32 OrderLineId;
     protected void Page_Load(object sender, EventArgs e)
     {
-        clsOrderLine orderLine = new clsOrderLine();
 
-        orderLine = (clsOrderLine)Session["orderLine"];
+        clsOrderLine AnOrderLine = new clsOrderLine();
 
-        //Response.Write(orderLine.OrderLineId);
+        AnOrderLine = (clsOrderLine)Session["AnOrderLine"];
+
+        OrderLineId = Convert.ToInt32(Session["OrderLineId"]);
+
+        if (IsPostBack == false)
+        {
+            if (OrderLineId != -1)
+            {
+                DisplayOrders();
+            }
+        }
+
+        //Response.Write(AnOrderLine.OrderLineId);
+    }
+
+    void DisplayOrders() 
+    {
+        clsOrderLineCollection orderLines = new clsOrderLineCollection();
+
+        orderLines.ThisOrderLine.find(OrderLineId);
+
+        txtBxOrderLineId.Text = orderLines.ThisOrderLine.OrderLineId.ToString();
+        txtBxOrderId.Text = orderLines.ThisOrderLine.OrderId.ToString();
+        txtBxProductId.Text = orderLines.ThisOrderLine.ProductId.ToString();
+        txtBxQuantity.Text = orderLines.ThisOrderLine.Quantity.ToString();
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -28,6 +52,8 @@ public partial class AnOrderLine : System.Web.UI.Page
 
         string error = orderLine.Validate(orderLineId, orderId, productId, quantity);
 
+        clsOrderLineCollection OrderLineList = new clsOrderLineCollection();
+
         if (error == "")
         {
             orderLine.OrderLineId = Convert.ToInt32(orderLineId);
@@ -37,12 +63,33 @@ public partial class AnOrderLine : System.Web.UI.Page
 
             Session["orderLine"] = orderLine;
 
-            Response.Redirect("OrderLineViewer.aspx");
+            clsOrderLineCollection orders = new clsOrderLineCollection();
+            clsOrderLine orderLineTemp = new clsOrderLine
+            {
+                OrderId = Convert.ToInt32(txtBxOrderId.Text),
+                OrderLineId = Convert.ToInt32(txtBxOrderLineId.Text),
+                ProductId = Convert.ToInt32(txtBxProductId.Text),
+                Quantity = Convert.ToInt32(txtBxQuantity.Text),
+
+            };
+
+            if (!orderLineTemp.exists(orderLineTemp.OrderLineId))
+            {
+                orders.ThisOrderLine = orderLine;
+                orders.Add();
+            }
+            else 
+            {
+                OrderLineList.ThisOrderLine = orderLine;
+                OrderLineList.Update();
+            }
         }
         else
         {
             lblError.Text = error;
         }
+
+        Response.Redirect("OrderLineViewer.aspx");
     }
 
     protected void btnFind_Click(object sender, EventArgs e)

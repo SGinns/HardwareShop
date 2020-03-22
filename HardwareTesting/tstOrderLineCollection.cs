@@ -73,5 +73,97 @@ namespace HardwareTesting
 
             Assert.AreEqual(orderLineCollection.orderLineList.Count, testList.Count);
         }
+
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsOrderLineCollection orderLines = new clsOrderLineCollection();
+
+            clsOrderLine orderLine = new clsOrderLine
+            {
+                OrderId = 3,
+                OrderLineId = 1,
+                ProductId = 1,
+                Quantity = 5
+            };
+
+            Int32 primaryKey = 0;
+
+            orderLines.ThisOrderLine = orderLine;
+
+            primaryKey = orderLines.Add();
+
+            orderLine.OrderLineId = primaryKey;
+
+            orderLines.ThisOrderLine.find(primaryKey);
+
+            Assert.AreEqual(orderLines.ThisOrderLine, orderLine);
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsOrderLineCollection orderLines = new clsOrderLineCollection();
+
+            clsOrderLine orderLine = new clsOrderLine
+            {
+                OrderId = 3,
+                OrderLineId = 1,
+                ProductId = 1,
+                Quantity = 5
+            };
+
+            Int32 primaryKey = 0;
+
+            orderLines.ThisOrderLine = orderLine;
+
+            primaryKey = orderLines.Add();
+
+            orderLine.OrderLineId = primaryKey;
+
+            orderLines.ThisOrderLine.find(primaryKey);
+
+            orderLines.Delete();
+
+            Assert.IsFalse(orderLines.ThisOrderLine.find(primaryKey));
+        }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsOrderLineCollection orderLines = new clsOrderLineCollection();
+
+            clsOrderLine orderLine = new clsOrderLine
+            {
+                OrderLineId = 1,
+                OrderId = 3,
+                ProductId = 1,
+                Quantity = 10
+            };
+
+            Int32 primaryKey = 0;
+
+            orderLines.ThisOrderLine = orderLine;
+
+            primaryKey = orderLines.Add();
+
+            orderLine.OrderLineId = primaryKey;
+
+            orderLine = new clsOrderLine
+            {
+                OrderLineId = 1,
+                OrderId = 4,
+                ProductId = 2,
+                Quantity = 5
+            };
+
+            orderLines.ThisOrderLine = orderLine;
+
+            orderLines.Update();
+
+            orderLines.ThisOrderLine.find(primaryKey);
+
+            Assert.AreEqual(orderLines.ThisOrderLine, orderLine);
+        }
     }
 }

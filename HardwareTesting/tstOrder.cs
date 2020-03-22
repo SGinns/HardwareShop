@@ -22,7 +22,7 @@ namespace HardwareTesting
             // Var to store result of method
             Boolean found = false;
             // Employee no to search for 
-            int orderId = 2;
+            int orderId = 3;
             // Use the find method
             found = order.find(orderId);
 
@@ -38,9 +38,9 @@ namespace HardwareTesting
 
             Boolean ok = true;
 
-            Int32 OrderId = 2;
+            Int32 OrderId = 3;
 
-            found = AnOrder.find(2);
+            found = AnOrder.find(3);
 
             if (AnOrder.OrderId != OrderId)
             {
@@ -61,7 +61,7 @@ namespace HardwareTesting
 
             Int32 customerId = 12321;
 
-            found = AnOrder.find(2);
+            found = AnOrder.find(3);
 
             if (AnOrder.CustomerId != customerId)
             {
@@ -82,7 +82,7 @@ namespace HardwareTesting
 
             Int32 StaffId = 1;
 
-            found = AnOrder.find(2);
+            found = AnOrder.find(3);
 
             if (AnOrder.StaffId != StaffId)
             {
@@ -101,9 +101,9 @@ namespace HardwareTesting
 
             Boolean ok = true;
 
-            DateTime date = Convert.ToDateTime("11/02/2020");
+            DateTime date = Convert.ToDateTime("21/03/2020");
 
-            found = AnOrder.find(2);
+            found = AnOrder.find(3);
 
             if (AnOrder.Date != date)
             {
@@ -124,7 +124,7 @@ namespace HardwareTesting
 
             string details = "text";
 
-            found = AnOrder.find(2);
+            found = AnOrder.find(3);
 
             if (AnOrder.Details != details)
             {
@@ -191,7 +191,7 @@ namespace HardwareTesting
 
             Boolean ok = true;
 
-            Int32 OrderId = 2;
+            Int32 OrderId = 3;
 
             found = AnOrder.find(OrderId);
 
