@@ -52,6 +52,7 @@
     <Compile Include="Factories\clsStaffFactory.cs" />
     <Compile Include="tstStaff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tstStaffCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
