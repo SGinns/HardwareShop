@@ -106,5 +106,39 @@ namespace HardwareTesting
             Assert.IsFalse(Found);
         }
 
+        [TestMethod]
+        public void UpdateMehtodOK()
+        {
+            clsStaffCollection allStaff = new clsStaffCollection();
+
+            clsStaff staff = new clsStaff();
+
+            Int32 PrimaryKey = 0;
+
+            staff.active = true;
+            staff.first_name = "Test";
+            staff.last_name = "Test";
+            staff.salary = 15000;
+
+            allStaff.thisStaff = staff;
+
+            PrimaryKey = allStaff.Add();
+
+            staff.EmployeeNo = PrimaryKey;
+
+            staff.active = false;
+            staff.first_name = "test2";
+            staff.last_name = "test2";
+            staff.salary = 100000;
+
+            allStaff.thisStaff = staff;
+
+            allStaff.update();
+
+            allStaff.thisStaff.find(PrimaryKey);
+
+            Assert.AreEqual(allStaff.thisStaff, staff);
+        }
+
     }
 }

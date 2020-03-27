@@ -22,11 +22,11 @@ public partial class DeleteAddress : System.Web.UI.Page
 
         staff.delete();
 
-        Response.Redirect("AddressList.aspx");
+        Response.Redirect("StaffList.aspx");
     }
 
     protected void btnNo_onClick(object sender, EventArgs e)
     {
-        Response.Redirect("AddressList.aspx");
+        Response.Redirect("StaffList.aspx");
     }
 }

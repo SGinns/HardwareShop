@@ -22,6 +22,8 @@ public partial class StaffList : System.Web.UI.Page
 
         ListBox1.DataSource = staff.StaffList;
 
+        
+
         ListBox1.DataValueField = "EmployeeNo";
 
         ListBox1.DataTextField = "first_name";
@@ -31,7 +33,7 @@ public partial class StaffList : System.Web.UI.Page
 
     protected void btn_On_click_Add(object sender, EventArgs e)
     {
-        Session["employee_id"] = -1;
+        Session["EmployeeNo"] = -1;
 
         Response.Redirect("aStaff.aspx");
     }
@@ -46,10 +48,28 @@ public partial class StaffList : System.Web.UI.Page
 
             Session["EmployeeNo"] = EmployeeNo;
 
-            Response.Redirect("DeleteAddress.aspx");
+            Response.Redirect("DeleteStaff.aspx");
         } else
         {
             lblError.Text = "Please Select a record";
+        }
+    }
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        Int32 employeeNo;
+
+        if(ListBox1.SelectedIndex != -1)
+        {
+
+            employeeNo = Convert.ToInt32(ListBox1.SelectedValue);
+
+            Session["EmployeeNo"] = employeeNo;
+
+            Response.Redirect("aStaff.aspx");
+        } else
+        {
+            lblError.Text = "Please select a record to edit";
         }
     }
 }

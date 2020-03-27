@@ -8,9 +8,17 @@ using HardwareClasses;
 
 public partial class aStaff : System.Web.UI.Page
 {
+    int employeeNo;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        employeeNo = Convert.ToInt32(Session["EmployeeNo"]);
+        if (!IsPostBack)
+        {
+            if (employeeNo != -1)
+            {
+                displayStaff();
+            }
+        }
     }
 
     protected void Button1_Click(object sender, EventArgs e)
@@ -39,9 +47,23 @@ public partial class aStaff : System.Web.UI.Page
 
             clsStaffCollection staffList = new clsStaffCollection();
 
-            staffList.thisStaff = staff;
+            if (employeeNo == -1)
+            {
+                staffList.thisStaff = staff;
 
-            staffList.Add();
+                staffList.Add();
+
+            } else
+            {
+
+                staffList.thisStaff.find(employeeNo);
+
+                staffList.thisStaff = staff;
+
+                staffList.update();
+            }
+
+
 
             Response.Redirect("staffList.aspx");
         } else
@@ -50,5 +72,16 @@ public partial class aStaff : System.Web.UI.Page
         }
     }
 
- 
+    protected void displayStaff()
+    {
+        clsStaffCollection allstaff = new clsStaffCollection();
+
+        allstaff.thisStaff.find(employeeNo);
+
+        TextBox1.Text = allstaff.thisStaff.salary.ToString();
+        TextBox2.Text = allstaff.thisStaff.first_name;
+        TextBox3.Text = allstaff.thisStaff.last_name;
+
+        Active.Checked = allstaff.thisStaff.active;
+    }
 }

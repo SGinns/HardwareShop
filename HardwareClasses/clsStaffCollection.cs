@@ -101,5 +101,18 @@ namespace HardwareClasses
 
             DB.Execute("sproc_tblStaff_Delete");
         }
+
+        public void update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@employeeNo", mthisStaff.EmployeeNo);
+            DB.AddParameter("@firstName", mthisStaff.first_name);
+            DB.AddParameter("@lastName", mthisStaff.last_name);
+            DB.AddParameter("@salary", mthisStaff.salary);
+            DB.AddParameter("@active", mthisStaff.active);
+
+            DB.Execute("sproc_tblStaff_Update");
+        }
     }
 }
