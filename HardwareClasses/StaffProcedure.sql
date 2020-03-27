@@ -1,5 +1,4 @@
-﻿CREATE PROCEDURE sproc_tblStaff_FilterByEmployeeNo
-	@EmployeeNo int
+﻿CREATE PROCEDURE sproc_tblStaff_SelectAll
 AS
-	select * from tblStaff where employee_id = @EmployeeNo
+	select * from dbo.tblstaff
 RETURN 0
