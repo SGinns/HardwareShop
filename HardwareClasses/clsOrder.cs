@@ -33,7 +33,7 @@ namespace HardwareClasses
                 mCustomerId = Convert.ToInt32(db.DataTable.Rows[0]["CustomerId"]);
                 mStaffId = Convert.ToInt32(db.DataTable.Rows[0]["StaffId"]);
                 mDate = Convert.ToDateTime(db.DataTable.Rows[0]["DatePlaced"]);
-                mDetails = Convert.ToString(db.DataTable.Rows[0]["Details"]); ;
+                mDetails = Convert.ToString(db.DataTable.Rows[0]["Details"]);
 
                 return true;
             }
