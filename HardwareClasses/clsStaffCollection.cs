@@ -63,22 +63,7 @@ namespace HardwareClasses
 
             DB.Execute("sproc_tblStaff_SelectAll");
 
-            RecordCount = DB.Count;
-
-            while( Index < RecordCount)
-            {
-                clsStaff aStaff = new clsStaff();
-                aStaff.active = Convert.ToBoolean(DB.DataTable.Rows[Index]["active"]);
-                aStaff.EmployeeNo = Convert.ToInt32(DB.DataTable.Rows[Index]["employee_id"]);
-                aStaff.salary = Convert.ToInt32(DB.DataTable.Rows[Index]["salary"]);
-                aStaff.first_name = Convert.ToString(DB.DataTable.Rows[Index]["first_name"]);
-                aStaff.last_name = Convert.ToString(DB.DataTable.Rows[Index]["last_name"]);
-
-                mStaffList.Add(aStaff);
-
-                Index++;
-
-            }
+            PopulateArray(DB);
         }
 
         public int Add()
@@ -113,6 +98,43 @@ namespace HardwareClasses
             DB.AddParameter("@active", mthisStaff.active);
 
             DB.Execute("sproc_tblStaff_Update");
+        }
+
+        public void ReportByFirstName(string FirstName)
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@firstname" , FirstName);
+
+            DB.Execute("sproc_tblStaff_FilterByFirstname");
+
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+
+            Int32 RecordCount;
+
+            RecordCount = DB.Count;
+
+            mStaffList = new List<clsStaff>();
+
+            while (Index < RecordCount)
+            {
+                clsStaff staff = new clsStaff();
+
+                staff.active = Convert.ToBoolean(DB.DataTable.Rows[Index]["active"]);
+                staff.first_name = Convert.ToString(DB.DataTable.Rows[Index]["first_name"]);
+                staff.last_name = Convert.ToString(DB.DataTable.Rows[Index]["last_name"]);
+                staff.salary = Convert.ToInt32(DB.DataTable.Rows[Index]["salary"]);
+                staff.EmployeeNo = Convert.ToInt32(DB.DataTable.Rows[Index]["employee_id"]);
+
+                mStaffList.Add(staff);
+
+                Index++;
+            }
         }
     }
 }

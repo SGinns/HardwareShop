@@ -140,5 +140,53 @@ namespace HardwareTesting
             Assert.AreEqual(allStaff.thisStaff, staff);
         }
 
+        [TestMethod]
+        public void ReportByFirstNameMethodOK()
+        {
+            clsStaffCollection staff = new clsStaffCollection();
+
+            clsStaffCollection filtered = new clsStaffCollection();
+
+            filtered.ReportByFirstName("");
+
+            Assert.AreNotEqual(staff.Count, filtered.Count);
+        }
+
+        [TestMethod]
+        public void ReportByFirstNameNoneFound()
+        {
+            clsStaffCollection staff = new clsStaffCollection();
+
+            staff.ReportByFirstName("xxx");
+
+            Assert.AreEqual(0, staff.Count);
+        }
+
+        [TestMethod]
+        public void ReportByFirstNameTestDataFound()
+        {
+            clsStaffCollection filtered = new clsStaffCollection();
+
+            Boolean OK = true;
+
+            filtered.ReportByFirstName("Joe");
+
+            if (filtered.Count == 1)
+            {
+                if (filtered.StaffList[0].EmployeeNo != 1)
+                {
+                    OK = false;
+                }
+            } else
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+        
+
     }
+
+
 }

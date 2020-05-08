@@ -72,4 +72,33 @@ public partial class StaffList : System.Web.UI.Page
             lblError.Text = "Please select a record to edit";
         }
     }
+    protected void btnApply_click(Object sender, EventArgs e)
+    {
+        clsStaffCollection staff = new clsStaffCollection();
+
+        staff.ReportByFirstName(filterBox.Text);
+
+        ListBox1.DataSource = staff.StaffList;
+
+        ListBox1.DataValueField = "EmployeeNo";
+
+        ListBox1.DataTextField = "first_name";
+
+        ListBox1.DataBind();
+    }
+
+    protected void btnClear_click(Object sender, EventArgs e)
+    {
+        clsStaffCollection staff = new clsStaffCollection();
+
+        filterBox.Text = "";
+        ListBox1.DataSource = staff.StaffList;
+
+        ListBox1.DataValueField = "EmployeeNo";
+
+        ListBox1.DataTextField = "first_name";
+
+        ListBox1.DataBind();
+
+    }
 }

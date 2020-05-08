@@ -16,6 +16,11 @@
         </p>
 
         <asp:Label ID="lblError" runat="server" />
+
+        <asp:Label ID="lblFilter" runat="server">Enter a first name</asp:Label>
+        <asp:TextBox runat="server" ID="filterBox" Width="125px" /> <br /> <br />
+        <asp:Button ID="btnApply" runat="server" OnClick="btnApply_click" Text="Apply" Height="26px" />
+        <asp:Button ID="btnClear" runat="server" OnClick="btnClear_click" Text="Clear" Height="26px" />
     </form>
 </body>
 </html>
