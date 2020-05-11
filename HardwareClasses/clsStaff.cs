@@ -88,7 +88,7 @@ namespace HardwareClasses
         {
             clsDataConnection DB = new clsDataConnection();
 
-            DB.AddParameter("@EmployeeNo", employeeNo);
+            DB.AddParameter(employeeNo, "@EmployeeNo");
 
             DB.Execute("sproc_tblStaff_FilterByEmployeeNo");
 

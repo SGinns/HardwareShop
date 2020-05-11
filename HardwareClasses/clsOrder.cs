@@ -23,7 +23,7 @@ namespace HardwareClasses
         {
             clsDataConnection db = new clsDataConnection();
 
-            db.AddParameter("@OrderId", id);
+            db.AddParameter(id, "@OrderId");
 
             db.Execute("sproc_tblOrder_FilterByOrderId");
 
