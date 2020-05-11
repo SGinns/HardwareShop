@@ -92,20 +92,59 @@ namespace HardwareClasses
 
             DB.Execute("sproc_tblStaff_FilterByEmployeeNo");
 
-            if (DB.Count == 1)
+            try
             {
-                mEmployeeNo = Convert.ToInt32(DB.DataTable.Rows[0]["Employee_id"]);
-                mSalary = Convert.ToInt32(DB.DataTable.Rows[0]["salary"]);
-                mfirst_name = Convert.ToString(DB.DataTable.Rows[0]["first_name"]);
-                mlast_name = Convert.ToString(DB.DataTable.Rows[0]["last_name"]);
-                mactive = Convert.ToBoolean(DB.DataTable.Rows[0]["active"]);
-                mcreated_at = Convert.ToDateTime(DB.DataTable.Rows[0]["created_at"]);
-                return true;
+
+                if (DB.Count == 1)
+                {
+                    mEmployeeNo = Convert.ToInt32(DB.DataTable.Rows[0]["Employee_id"]);
+                    mSalary = Convert.ToInt32(DB.DataTable.Rows[0]["salary"]);
+                    mfirst_name = Convert.ToString(DB.DataTable.Rows[0]["first_name"]);
+                    mlast_name = Convert.ToString(DB.DataTable.Rows[0]["last_name"]);
+                    mactive = Convert.ToBoolean(DB.DataTable.Rows[0]["active"]);
+                    mcreated_at = Convert.ToDateTime(DB.DataTable.Rows[0]["created_at"]);
+                    return true;
+                }
             }
-            else
+
+            catch (IndexOutOfRangeException e)
             {
+                Console.WriteLine("Exception Caught: ", e);
                 return false;
             }
+            return false;
         }
+        public string Valid(int salary, string firstName, string lastName, bool active)
+        {
+            string error = "";
+
+            if (salary <= 0)
+            {
+                // Check if salary isnt set
+                error += "Salary was equal or less than 0 (Not set)";
+            }
+
+            if (firstName.Length == 0 || firstName ==  " ")
+            {
+                // Check if first name is set
+                error += "Firstname was not set";
+            }
+
+
+            if (lastName.Length == 0 || lastName == " ")
+            {
+                // Check if last name is set
+                error += "Lastname was not set";
+            }
+
+            if (!active)
+            {
+                //lol
+                Console.WriteLine(@"I checked a boolean bc why not \r\n ------------- \r\n Joe");
+            }
+
+            return error;
+        }
+
     }
 }

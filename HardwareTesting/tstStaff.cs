@@ -70,7 +70,7 @@ namespace HardwareTesting
             // Use the find method
             found = staffMember.find(1);
             // Check the pulled data
-            if (staffMember.salary != 15000)
+            if (staffMember.salary != salary)
             {
                 OK = false;
             }
@@ -160,6 +160,139 @@ namespace HardwareTesting
             }
             Assert.IsTrue(OK);
         }
+
+        //  Test will pass if validation fails
+        [TestMethod]
+        public void TestValidSalaryNegative()
+        {
+            // Generate a new staff object with the factory
+            clsStaff staff = new clsStaffFactory().MakeNewStaffObj();
+
+            // Hold an empty string to simulate error string
+            string error = "";
+
+            // Set salary on object
+            staff.salary = -100;
+
+            // Call the test method
+            error = staff.Valid(staff.salary, staff.first_name, staff.last_name, staff.active);
+
+            Assert.AreNotEqual("", error);
+
+        }
+
+
+        [TestMethod]
+        public void TestValidPass()
+        {
+            // Generate a new staff object with the factory
+            clsStaff staff = new clsStaffFactory().MakeNewStaffObj(); // Should already be a valid object
+
+            // Hold an empty string to simulate error string
+            string error = "";
+
+            // Call the test method
+            error = staff.Valid(staff.salary, staff.first_name, staff.last_name, staff.active);
+
+            if (error != "")
+            {
+                Console.WriteLine("Test failed with " + error);
+            }
+
+            Assert.AreEqual("", error);
+
+        }
+
+        [TestMethod]
+        public void TestSalaryNullValid()
+        {
+            // Generate a new staff object with the factory
+            clsStaff staff = new clsStaffFactory().MakeNewStaffObj(); // Should already be a valid object
+
+            // Hold an empty string to simulate error string
+            string error = "";
+
+            staff.salary = 0;
+
+            // Call the test method
+            error = staff.Valid(staff.salary, staff.first_name, staff.last_name, staff.active);
+
+            Assert.AreNotEqual("", error);
+
+        }
+
+        [TestMethod]
+        public void TestFirstNameEmptyValid()
+        {
+            // Generate a new staff object with the factory
+            clsStaff staff = new clsStaffFactory().MakeNewStaffObj(); // Should already be a valid object
+
+            // Hold an empty string to simulate error string
+            string error = "";
+
+            staff.first_name = "";
+
+            // Call the test method
+            error = staff.Valid(staff.salary, staff.first_name, staff.last_name, staff.active);
+
+            Assert.AreNotEqual("", error);
+
+        }
+
+        [TestMethod]
+        public void TestFirstNameSpaceStringValid()
+        {
+            // Generate a new staff object with the factory
+            clsStaff staff = new clsStaffFactory().MakeNewStaffObj(); // Should already be a valid object
+
+            // Hold an empty string to simulate error string
+            string error = "";
+
+            staff.first_name = " ";
+
+            // Call the test method
+            error = staff.Valid(staff.salary, staff.first_name, staff.last_name, staff.active);
+
+            Assert.AreNotEqual("", error);
+
+        }
+
+        [TestMethod]
+        public void TestLastNameEmptyValid()
+        {
+            // Generate a new staff object with the factory
+            clsStaff staff = new clsStaffFactory().MakeNewStaffObj(); // Should already be a valid object
+
+            // Hold an empty string to simulate error string
+            string error = "";
+
+            staff.last_name = "";
+
+            // Call the test method
+            error = staff.Valid(staff.salary, staff.first_name, staff.last_name, staff.active);
+
+            Assert.AreNotEqual("", error);
+
+        }
+
+        [TestMethod]
+        public void TestLastNameSpaceStringValid()
+        {
+            // Generate a new staff object with the factory
+            clsStaff staff = new clsStaffFactory().MakeNewStaffObj(); // Should already be a valid object
+
+            // Hold an empty string to simulate error string
+            string error = "";
+
+            staff.last_name = " ";
+
+            // Call the test method
+            error = staff.Valid(staff.salary, staff.first_name, staff.last_name, staff.active);
+
+            Assert.AreNotEqual("", error);
+
+        }
+
 
     }
 }
