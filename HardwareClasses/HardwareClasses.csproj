@@ -41,12 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsSupplierCollection.cs" />
+    <Compile Include="clsSupplierConnection.cs" />
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="clsOrderLineCollection.cs" />
     <Compile Include="clsOrderCollection.cs" />
     <Compile Include="clsOrderLine.cs" />
     <Compile Include="clsOrder.cs" />
     <Compile Include="clsStaff.cs" />
+    <Compile Include="clsSupplier.cs" />
     <Compile Include="clsStaffCollection.cs" />
     <Compile Include="clsStaffFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

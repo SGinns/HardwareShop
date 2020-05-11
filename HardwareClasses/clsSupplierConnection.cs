@@ -11,7 +11,7 @@ using System.Data;
 ///it is free for use by anybody so long as you give credit to the original author i.e me
 ///Matthew Dean mjdean@dmu.ac.uk De Montfort University 2019
 
-public class clsDataConnection
+public class clssupplierConnection
 {
     //connection object used to connect to the database
     SqlConnection connectionToDB = new SqlConnection();
@@ -23,16 +23,10 @@ public class clsDataConnection
     List<SqlParameter> SQLParams = new List<SqlParameter>();
     //data table used to store the results of the stored procedure
     DataTable dataTable = new DataTable();
-
-    internal void AddParameter(string v, object customerId)
-    {
-        throw new NotImplementedException();
-    }
-
     //string variable used to store the connection string
     private string connectionString;
 
-    public clsDataConnection()
+    public clssupplierConnection()
     {
         connectionString = GetConnectionString();
     }
@@ -145,9 +139,9 @@ public class clsDataConnection
         return OldPath;
     }
 
-    public void AddParameter(object ParamValue, string ParamName)
-        ///public method allowing the addition of an sql parameter to the list of parameters
-        ///it accepts two parameters the name of the parameter and its value
+    public void AddParameter(string ParamName, object ParamValue)
+    ///public method allowing the addition of an sql parameter to the list of parameters
+    ///it accepts two parameters the name of the parameter and its value
     {
         //create a new instance of the sql parameter object
         SqlParameter AParam = new SqlParameter(ParamName, ParamValue);
