@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HardwareClasses
 {
-    class clsSupplier
+    class clsSupplierCollection
     {
         private int mSupplierId;
         private string mCompanyName;
@@ -23,6 +23,8 @@ namespace HardwareClasses
         public string Phone { get { return mPhone; } set { mPhone = value; } }
         public Boolean StockAvaliablity { get { return mStockAvaliablity; } set { mStockAvaliablity = value; } }
         public DateTime Date { get { return mDate; } set { mDate = value; } }
+
+        public object thisSupplier { get; set; }
 
         public bool find(int supplierid)
         {
@@ -45,7 +47,10 @@ namespace HardwareClasses
                 return false;
             }
         }
+
+        public void ReportBySupplierId(string text)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
-
-

@@ -31,7 +31,7 @@ public partial class AnOrder : System.Web.UI.Page
 
     void DisplayOrders() 
     {
-        clsOrderCollection orders = new clsOrderCollection();
+        clssupplierCollection orders = new clssupplierCollection();
 
         orders.ThisOrder.find(OrderId);
 
@@ -54,7 +54,7 @@ public partial class AnOrder : System.Web.UI.Page
 
         string error = AnOrder.Validate(orderId, customerId, staffId, date, details);
 
-        clsOrderCollection orders = new clsOrderCollection();
+        clssupplierCollection orders = new clssupplierCollection();
 
         if (error == "")
         {
@@ -66,7 +66,7 @@ public partial class AnOrder : System.Web.UI.Page
 
             Session["AnOrder"] = AnOrder;
 
-            clsOrderCollection orderList = new clsOrderCollection();
+            clssupplierCollection orderList = new clssupplierCollection();
             if (!AnOrder.exists(AnOrder.OrderId))
             {
                 orderList.ThisOrder = AnOrder;

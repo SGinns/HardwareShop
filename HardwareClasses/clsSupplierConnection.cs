@@ -15,6 +15,12 @@ public class clssupplierConnection
 {
     //connection object used to connect to the database
     SqlConnection connectionToDB = new SqlConnection();
+
+    public bool find(int supplierId)
+    {
+        throw new NotImplementedException();
+    }
+
     //data adapter used to transfer data to and from the database
     SqlDataAdapter dataChannel = new SqlDataAdapter();
     //ado.net class for building the sql commands    
@@ -25,6 +31,8 @@ public class clssupplierConnection
     DataTable dataTable = new DataTable();
     //string variable used to store the connection string
     private string connectionString;
+    public string stock_avaliablity;
+    public readonly object Address;
 
     public clssupplierConnection()
     {
@@ -213,4 +221,9 @@ public class clssupplierConnection
             dataTable = value;
         }
     }
+
+    public object Company_name { get; set; }
+    public string phone { get; set; }
+    public object date { get; set; }
+    public string Postalcode { get; set; }
 }

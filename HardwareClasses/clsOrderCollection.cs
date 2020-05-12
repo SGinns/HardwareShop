@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace HardwareClasses
 {
-    public class clsOrderCollection
+    public class clssupplierCollection
     {
         private List<clsOrder> mOrderList = new List<clsOrder>();
         private clsOrder mThisOrder = new clsOrder();
@@ -12,7 +12,9 @@ namespace HardwareClasses
         public int Count { get { return mCount; } set { mCount = value; } }
         public clsOrder ThisOrder { get { return mThisOrder; } set { mThisOrder = value; } }
 
-        public clsOrderCollection()
+        public object ThisSupplier { get; set; }
+
+        public clssupplierCollection()
         {
             clsDataConnection DB = new clsDataConnection();
 
