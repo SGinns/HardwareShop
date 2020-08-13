@@ -6,13 +6,13 @@ namespace HardwareClasses
     public class clsSupplierCollection
     {
         private const string V = "sproc_tblSupplier_Insert";
-        private readonly List<clsSupplier> mSupplierList = new List<clsSupplier>();
-        private clsSupplier mThisSupplier = new clsSupplier();
+        private readonly List<clsSupplierCollection> mSupplierList = new List<clsSupplierCollection>();
+        private clsSupplierCollection mThisSupplier = new clsSupplierCollection();
         private object mThisOrder;
 
-        private List<clsSupplier> SupplierList { get => SupplierList; set { SupplierList = value; } }
+        private List<clsSupplierCollection> SupplierList { get => SupplierList; set { SupplierList = value; } }
         public int Count { get; set; }
-        private clsSupplier Thisupplier { get { return mThisSupplier; } set { mThisSupplier = value; } }
+        private clsSupplierCollection Thisupplier { get { return mThisSupplier; } set { mThisSupplier = value; } }
 
         public clsSupplierCollection()
         {
@@ -87,10 +87,10 @@ namespace HardwareClasses
             Int32 recordCount = 0;
 
             recordCount = DB.Count;
-            List<clsSupplier> mSupplierList = new List<clsSupplier>();
+            List<clsSupplierCollection> mSupplierList = new List<clsSupplierCollection>();
             while (index < recordCount)
             {
-                clsSupplier testItem = new clsSupplier();
+                clsSupplierCollection testItem = new clsSupplierCollection();
 
                 testItem.SupplierId = Convert.ToInt32(DB.DataTable.Rows[index]["SupplierId"]);
                 testItem.CompanyName = Convert.ToString(DB.DataTable.Rows[index]["CompanyName"]);
